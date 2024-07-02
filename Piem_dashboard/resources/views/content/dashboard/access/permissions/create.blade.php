@@ -24,84 +24,14 @@
                         </div>
                         @enderror
                     </div>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h4 class="mt-3 text-primary">Role Permissions <code>*</code></h4>
-                            <div class="row">
-                                <div class="table-responsive">
-                                    <table class="table table-flush-spacing">
-                                        <tbody>
-                                            <td>
-                                                <div class="d-flex">
-                                                    <div class="form-check">
-                                                        <input type="checkbox" class="form-check-input checkAll"
-                                                            id="checkAllCustom">
-                                                        <label for="checkAllCustom"
-                                                            class="form-check-label">Pilih
-                                                            Semua</label>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex">
-                                                    <div class="form-check">
-                                                        <input type="checkbox" class="form-check-input check"
-                                                            id="checkLihat" name="guard_name[]" value="View">
-                                                        <label for="checkLihat"
-                                                            class="form-check-label">Lihat</label>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex">
-                                                    <div class="form-check">
-                                                        <input type="checkbox" class="form-check-input check"
-                                                            id="checkTambah" name="guard_name[]" value="Create">
-                                                        <label for="checkTambah"
-                                                            class="form-check-label">Tambah</label>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex">
-                                                    <div class="form-check">
-                                                        <input type="checkbox" class="form-check-input check"
-                                                            id="checkUbah" name="guard_name[]" value="Edit">
-                                                        <label for="checkUbah"
-                                                            class="form-check-label">Ubah</label>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex">
-                                                    <div class="form-check">
-                                                        <input type="checkbox" class="form-check-input check"
-                                                            id="checkHapus" name="guard_name[]" value="Delete">
-                                                        <label for="checkHapus"
-                                                            class="form-check-label">Hapus</label>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+                    <div class="form-group">
+                        <label for="guard_name" class="form-label text-primary">Guard Name</label>
+                        <input type="text" class="form-control @error('guard_name') is-invalid @enderror" id="guard_name" name="guard_name" placeholder="Masukan guard_name">
+                        @error('guard_name')
+                        <div class="invalid-feedback">
+                            {{ $message }}
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <table class="table table-flush text-center" id="dynamicAddRemove">
-                                <tr>
-                                    <th class="w-75">Custom Permission</th>
-                                    <th class="w-25"><button type="button" id="dynamic-ar"
-                                            class="btn btn-sm btn-primary"><i class="mdi mdi-plus"></i></button></th>
-                                </tr>
-                                <tbody>
-
-                                </tbody>
-                            </table>
-                        </div>
+                        @enderror
                     </div>
                     <div class="col-sm-12 mt-3">
                         <a href="{{ route('dashboard.access.permissions.index') }}" class="btn btn-danger ">Back</a>

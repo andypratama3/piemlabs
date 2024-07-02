@@ -40,7 +40,7 @@
         {
           "url": "/dashboard/master-data/passport",
           "name": "Passport",
-          "slug": "front-pages-landing"
+          "slug": "dashboard.piem-travel.passport"
         },
         {
           "url": "https://demos.themeselection.com/materio-bootstrap-html-laravel-admin-template/demo-1/front-pages/pricing",

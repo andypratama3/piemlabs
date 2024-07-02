@@ -63,7 +63,7 @@ use App\Http\Controllers\dashboard\PiemTravel\ProductController as DashboardProd
 use App\Http\Controllers\dashboard\PiemTravel\CategoryController as DashboardCategoryController;
 use App\Http\Controllers\dashboard\PiemTravel\PassportController as DashboardPassportController;
 //accesss
-use App\Http\Controllers\dashboard\PiemTravel\SettingsController as DashboardSettingsController;
+use App\Http\Controllers\dashboard\SettingsController as DashboardSettingsController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -116,8 +116,10 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth:sanctum', 'verifie
 
 
 // Main Page Route
-Route::get('/', [LandingController::class, 'index'])->name('dashboard-analytics');
-
+Route::get('/e', [LandingController::class, 'index'])->name('dashboard-analytics');
+Route::get('/', function () {
+    return redirect('/login');
+});
 
 // User Authentication
 // Route::get('/forgot-password', [PasswordResetLinkController::class, 'create'])->name('password.request');

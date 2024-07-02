@@ -63,7 +63,7 @@
                 <div class="d-flex justify-content-between align-items-end">
                     <div class="role-heading">
                         <h4 class="mb-1"> <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#backDropModal">
+                                data-bs-target="#addRoleModal">
                                 <i class="mdi mdi-plus"></i> Add New Role
                             </button></h4>
                     </div>
@@ -104,31 +104,22 @@
                         </div>
                       </td>
                     </tr>
+                    @foreach ($permissions as $permission)
                     <tr>
-                      <td class="text-nowrap fw-medium">Payroll</td>
+                      <td class="text-nowrap fw-medium">{{ $permission->name }}</td>
                       <td>
                         <div class="d-flex">
                           <div class="form-check me-3 me-lg-5">
-                            <input class="form-check-input" type="checkbox" id="payrollRead" />
-                            <label class="form-check-label" for="payrollRead">
-                              Read
-                            </label>
-                          </div>
-                          <div class="form-check me-3 me-lg-5">
-                            <input class="form-check-input" type="checkbox" id="payrollWrite" />
-                            <label class="form-check-label" for="payrollWrite">
-                              Write
-                            </label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="payrollCreate" />
-                            <label class="form-check-label" for="payrollCreate">
-                              Create
+                            <input class="form-check-input" type="checkbox" id="{{ $permission->name }}" />
+                            <label class="form-check-label" for="{{ $permission->name }}">
+                              {{ $permission->guard_name }}
                             </label>
                           </div>
                         </div>
                       </td>
+
                     </tr>
+                      @endforeach
                   </tbody>
                 </table>
               </div>

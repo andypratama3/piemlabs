@@ -10,8 +10,10 @@ class Permission extends SpatiePermission
 {
     use HasFactory;
     use HasUuids, NameHasSlug;
+
     protected $primaryKey = 'uuid';
 
+    protected $table = 'permissions';
     protected $fillable = [
         'name',
         'guard_name',
@@ -20,8 +22,5 @@ class Permission extends SpatiePermission
         'updated_at',
     ];
 
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
+
 }

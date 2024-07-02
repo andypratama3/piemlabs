@@ -51,7 +51,7 @@ class ProductData extends Data
             'category.required' => 'Column Category Product Cannot Be Empty!',
             'type.required' => 'Column Type Product Cannot Be Empty!',
             'periode.required' => 'Column Periode Product Cannot Be Empty!',
-            'image required|mimes:png,jpg,jpeg' => 'Column Image Product Cannot Be Empty!',
+            'image.required|mimes:png,jpg,jpeg' => 'Column Image Product Cannot Be Empty!',
         ];
     }
 }

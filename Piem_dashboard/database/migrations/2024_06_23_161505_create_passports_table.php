@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('passport')->nullable();
             $table->foreignUuid('produk_id')->references('id')->on('produks')->onDelete('cascade');
             $table->foreignUuid('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('status');
+            $table->string('status')->default('pending');
             $table->string('slug');
             $table->softDeletes();
             $table->timestamps();

@@ -11,54 +11,25 @@
                 <h6 class="m-0 font-weight-bold text-primary text-center">Edit permission</h6>
             </div>
             <div class="card-body">
-                <form action="{{ route('dashboard.access.permissions.update', $permission->slug) }}" method="POST">
+                <form action="{{ route('dashboard.access.permissions.update', $permission->slug) }}" method="POST" id="formEdit">
                     @csrf
                     @method('PUT')
                     <input type="hidden" name="slug" value="{{ $permission->slug }}">
                     <div class="form-group">
                         <label for="name" class="form-label text-primary">Name permission</label>
-                        <input type="text" class="form-control" id="name" name="name" value="{{ $permission->name }}" readonly>
+                        <input type="text" class="form-control" id="name" name="name" value="{{ $permission->name }}">
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h4 class="mt-3 text-primary">Role Permissions <code>*</code></h4>
-                            <div class="row">
-                                <div class="table-responsive">
-                                    <table class="table table-flush-spacing">
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <div class="d-flex">
-                                                        <div class="form-check">
-                                                            <input type="checkbox" class="form-check-input checkAll" id="checkAllCustom">
-                                                            <label for="checkAllCustom" class="form-check-label">Pilih Semua</label>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                @foreach (['View', 'Create', 'Edit', 'Delete'] as $guardName)
-                                                    <td>
-                                                        <div class="d-flex">
-                                                            <div class="form-check">
-                                                                <input type="checkbox" class="form-check-input check" id="check{{ $guardName }}" name="guard_name[]" value="{{ $guardName }}" {{ in_array($guardName, explode('-', $permission->guard_name)) ? 'checked' : '' }}>
-                                                                <label for="check{{ $guardName }}" class="form-check-label">{{ $guardName }}</label>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                @endforeach
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="form-group"></div>
+                        <label for="guard_name" class="form-label text-primary">Guard Name</label>
+                        <input type="text" class="form-control" id="guard_name" name="guard_name" value="{{ $permission->guard_name }}">
                     </div>
 
                     <!-- Other fields or custom permissions -->
 
                     <div class="col-sm-12 mt-3">
                         <a href="{{ route('dashboard.access.permissions.index') }}" class="btn btn-danger">Back</a>
-                        <button type="submit" class="btn btn-primary float-end">Submit</button>
+                        <button id="btnSubmit" type="button" class="btn btn-primary float-end">Submit</button>
                     </div>
                 </form>
             </div>
@@ -77,6 +48,23 @@
             } else {
                 $(".check").prop('checked', false);
             }
+        });
+
+        $('#btnSubmit').on('click', function () {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, update it!',
+                reverseButtons: true
+            }).then((result) => {
+                if(result.isConfirmed) {
+                    $('#formEdit').submit();
+                }
+            })
         });
     });
 </script>

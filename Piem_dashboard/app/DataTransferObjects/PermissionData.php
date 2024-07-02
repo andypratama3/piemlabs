@@ -10,7 +10,7 @@ class PermissionData extends Data
 {
     public function __construct(
         public readonly string $name,
-        public readonly array $guard_name,
+        public readonly string $guard_name,
         public readonly ?string $slug,
 
     ) {

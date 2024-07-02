@@ -93,8 +93,8 @@
                 <div class="col-md-4 product_status">
                     <select id="status" class="form-select text-capitalize">
                         <option selected disabled>Select Status</option>
-                        <option value="active">Active</option>
-                        <option value="inactive">Inactive</option>
+                        <option value="1">Active</option>
+                        <option value="0">Inactive</option>
                     </select></div>
                 <div class="col-md-4 product_category">
                     <select id="ProductCategory"  class="form-select text-capitalize" multiple>

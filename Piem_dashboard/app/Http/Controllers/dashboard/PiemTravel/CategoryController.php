@@ -31,7 +31,7 @@ class CategoryController extends Controller
     {
         $kategoriAction->execute($KategoriData);
         flash()->success('Category created successfully');
-        return redirect()->route('dashboard.kategori.index');
+        return redirect()->route('dashboard.list.kategori.index');
     }
 
     public function edit($slug)
@@ -44,13 +44,13 @@ class CategoryController extends Controller
     {
         $kategoriAction->execute($KategoriData, $slug);
         flash()->success('Category updated successfully');
-        return redirect()->route('dashboard.kategori.index');
+        return redirect()->route('dashboard.list.kategori.index');
     }
 
     public function destroy(KategoriActionDelete $KategoriActionDelete, $slug)
     {
         $KategoriActionDelete->execute($slug);
         flash()->success('Category deleted successfully');
-        return redirect()->route('dashboard.kategori.index');
+        return redirect()->route('dashboard.list.kategori.index');
     }
 }

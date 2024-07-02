@@ -3,13 +3,14 @@
 @section('title', 'Dashboard - Passport')
 
 @section('vendor-style')
-<link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
 @endsection
 @section('content')
 
 <h4 class="py-3 mb-4">
     <span class="text-muted fw-light">Passport /</span> List
+    <a href="{{ route('dashboard.piem-travel.passport.create') }}" class="btn btn-primary btn-sm float-end"><i class="mdi mdi-plus"></i> Create</a>
 </h4>
 
 <div class="col-md-12">
@@ -35,7 +36,7 @@
                         <div class="d-flex justify-content-between align-items-start">
                             <div>
                                 <h6 class="mb-2">Total Pending</h6>
-                                <h4 class="mb-2">{{ $passport_coutn_pending }}</h4>
+                                <h4 class="mb-2">{{ $passport_count_pending }}</h4>
                             </div>
                             <div class="avatar">
                                 <span class="avatar-initial rounded bg-label-secondary">
@@ -48,7 +49,7 @@
                         <div class="d-flex justify-content-between align-items-start">
                             <div>
                                 <h6 class="mb-2">Total Sukses</h6>
-                                <h4 class="mb-2">{{ $passport_coutn_approved }}</h4>
+                                <h4 class="mb-2">{{ $passport_count_approved }}</h4>
 
                             </div>
                         </div>

@@ -32,6 +32,7 @@ class ProductController extends Controller
 
         if($request->status){
             $products->where('status', $request->status);
+            
         }
 
         if($request->category){
